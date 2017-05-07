@@ -19,14 +19,8 @@ class ListViewDemo extends Component {
         };
     }
 
-    renderPerRow(data) {
-        return (
-            <View style={{height: 200, flexDirection: 'row'}}>
-                <Text style={{padding: 10, color: 'red'}}>{data}</Text>
-                <Image source={require('./zly.jpg')}/>
-            </View>
+    renderPerRow(){
 
-        );
     }
 
     render() {
@@ -35,7 +29,17 @@ class ListViewDemo extends Component {
 
             <ListView
                 dataSource={this.state.datas}
-                renderRow={this.renderPerRow}/>
+                renderRow={
+                    (itemData)=> {
+                        return (
+                            <View style={{height: 200, flexDirection: 'row'}}>
+                                <Text style={{padding: 10, color: 'blue'}}>{itemData}</Text>
+                                <Image source={require('./zly.jpg')}/>
+                            </View>
+
+                        );
+                    }
+                }/>
         </View>);
     }
 
