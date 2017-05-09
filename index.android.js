@@ -6,48 +6,50 @@
 
 
 import React, {Component} from 'react'
-import {
-    AppRegistry,
-    Text,
-    View,
-    StyleSheet,
-    TextInput,
-    ScrollView,
-    Image,
-    ListView,
-    TouchableHighlight,
-    TouchableNativeFeedback,
-    TouchableOpacity,
-} from 'react-native'
+import {AppRegistry, Text, View, StyleSheet, TextInput,ScrollView,Image} from 'react-native'
 
-class MyButton extends Component {
-    onPressButton() {
-        console.log("U tapped the btn!");
-    }
 
-    onLongPresss(){
-        console.log('Long press!!!');
-    }
-
+class ScrollViewTest extends Component {
     render() {
         return (
-            <View flexDirection='column'>
+            <ScrollView pagingEnabled = {true}>
+                <Text> 厉害了 我的哥 这是一个ScrollView</Text>
+                <Image
+                    style={{width:50,height:50}}
+                    source={{uri: 'https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png'}}/>
+                <Image source={require('./zly.jpg')}/>
+                <Image
+                    source={{uri: 'https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png'}}/>
+                <Image source={require('./zly.jpg')}/>
+                <Image
+                    source={{uri: 'https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png'}}/>
+                <Image source={require('./zly.jpg')}/>
+                <Image
+                    source={{uri: 'https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png'}}/>
+                <Image source={require('./zly.jpg')}/>
+                <Image
+                    source={{uri: 'https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png'}}/>
+                <Image source={require('./zly.jpg')}/>
+                <Text> 第二页</Text>
+                <Image
+                    source={{uri: 'https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png'}}/>
+                <Image source={require('./zly.jpg')}/>
+                <Image
+                    source={{uri: 'https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png'}}/>
+                <Image source={require('./zly.jpg')}/>
+                <Image
+                    source={{uri: 'https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png'}}/>
+                <Image source={require('./zly.jpg')}/>
+                <Image
+                    source={{uri: 'https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png'}}/>
+                <Image source={require('./zly.jpg')}/>
+                <Image
+                    source={{uri: 'https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png'}}/>
+                <Image source={require('./zly.jpg')}/>
 
-                <TouchableHighlight onPress={this.onPressButton}>
-                    <Text> Button</Text>
-                </TouchableHighlight>
 
-                <TouchableOpacity onLongPress={this.onLongPresss}>
-                    <Text>Only change alpha </Text>
-                </TouchableOpacity>
-
-
-                <TouchableNativeFeedback onPress={this.onPressButton}>
-                    <Text>can not set Image in Touchablexxx</Text>
-                </TouchableNativeFeedback>
-            </View>
-
+            </ScrollView>
         );
     }
 }
-AppRegistry.registerComponent("AwesomeProject", ()=> MyButton);
+AppRegistry.registerComponent("AwesomeProject", ()=> ScrollViewTest);
