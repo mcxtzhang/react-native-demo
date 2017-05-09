@@ -6,50 +6,23 @@
 
 
 import React, {Component} from 'react'
-import {AppRegistry, Text, View, StyleSheet, TextInput,ScrollView,Image} from 'react-native'
+import {AppRegistry, Text, View, StyleSheet, TextInput, ScrollView, Image, ViewPagerAndroid} from 'react-native'
 
-
-class ScrollViewTest extends Component {
+class ViewPager extends Component {
     render() {
-        return (
-            <ScrollView pagingEnabled = {true}>
-                <Text> 厉害了 我的哥 这是一个ScrollView</Text>
-                <Image
-                    style={{width:50,height:50}}
-                    source={{uri: 'https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png'}}/>
-                <Image source={require('./zly.jpg')}/>
-                <Image
-                    source={{uri: 'https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png'}}/>
-                <Image source={require('./zly.jpg')}/>
-                <Image
-                    source={{uri: 'https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png'}}/>
-                <Image source={require('./zly.jpg')}/>
-                <Image
-                    source={{uri: 'https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png'}}/>
-                <Image source={require('./zly.jpg')}/>
-                <Image
-                    source={{uri: 'https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png'}}/>
-                <Image source={require('./zly.jpg')}/>
-                <Text> 第二页</Text>
-                <Image
-                    source={{uri: 'https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png'}}/>
-                <Image source={require('./zly.jpg')}/>
-                <Image
-                    source={{uri: 'https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png'}}/>
-                <Image source={require('./zly.jpg')}/>
-                <Image
-                    source={{uri: 'https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png'}}/>
-                <Image source={require('./zly.jpg')}/>
-                <Image
-                    source={{uri: 'https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png'}}/>
-                <Image source={require('./zly.jpg')}/>
-                <Image
-                    source={{uri: 'https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png'}}/>
-                <Image source={require('./zly.jpg')}/>
-
-
-            </ScrollView>
-        );
+        return (<ViewPagerAndroid
+            initialPage={0}
+            style={{
+                alignItems: 'center',
+                padding: 20
+            }}>
+            <View>
+                <Text>First Page</Text>
+            </View>
+            <View>
+                <Text>Second page</Text>
+            </View>
+        </ViewPagerAndroid>);
     }
 }
-AppRegistry.registerComponent("AwesomeProject", ()=> ScrollViewTest);
+AppRegistry.registerComponent("AwesomeProject", ()=> ViewPager);
