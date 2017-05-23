@@ -18,42 +18,57 @@ import {
     Animated
 } from 'react-native'
 
-class AnimatedFadeView extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {animatedValue: new Animated.Value(0)};//定义 用于动画的变量
-    }
+var MOCKED_MOVIES_DATA = [
+    {title: '标题', year: '2015', posters: {thumbnail: 'http://i.imgur.com/UePbdph.jpg'}},
+];
 
-    componentDidMount() {
-        Animated.timing(this.state.animatedValue,//要改变哪个变量的值
-            {
-                toValue: 1,
-                duration: 5000,
-                delay: 2000,
-            }
-        ).start();
-    }
-
+class MoveList extends Component {
     render() {
-        return (<Animated.View style={{opacity: this.state.animatedValue, ...this.props.style}}>
-            {this.props.children}
-        </Animated.View>);
-    }
+        var movie = MOCKED_MOVIES_DATA[0];
+        return (
+            <View style={styles.container}>
+                <Image
+                    style={styles.thumnail}
+                    source={{uri: movie.posters.thumbnail} }
+                ></Image>
+
+                <View style={styles.rightContainer}>
+                    <Text style={styles.title}>{movie.title}</Text>
+                    <Text>{movie.year}</Text>
+                </View>
 
 
-}
-
-class AnimatedDemo extends Component {
-    render() {
-        return (<AnimatedFadeView style={{width: 300, height: 100, backgroundColor: 'red'}}>
-            <Text style={{
-                fontSize: 28,
-                textAlign: 'center',
-                margin: 10
-            }}>Fading in Text</Text>
-        </AnimatedFadeView>);
+            </View>
+        );
     }
 }
 
+var styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#f5fcff',
+        flexDirection: 'row'
+    },
+    thumnail: {
+        width: 53,
+        height: 81
+    },
+    rightContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#ffdc5b',
+    },
+    title: {
+        fontSize: 30,
+        textAlign:'center',
+        marginBottom:30,
 
-AppRegistry.registerComponent("AwesomeProject", ()=> AnimatedDemo);
+    }
+
+});
+
+
+AppRegistry.registerComponent("AwesomeProject", ()=> MoveList);
