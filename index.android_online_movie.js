@@ -15,8 +15,7 @@ import {
     ScrollView,
     Image,
     ViewPagerAndroid,
-    Animated,
-    ListView
+    Animated
 } from 'react-native'
 
 var MOCKED_MOVIES_DATA = [
@@ -34,12 +33,7 @@ class MoveList extends Component {
 
     constructor(props) {
         super(props)
-        this.state = {
-            dataSource: new ListView.DataSource({
-                rowHasChanged: (row1, row2)=> row1 != row2,
-            }),
-            loaded: false
-        };
+        this.state = {movie: null};
         this.fetchDatas = this.fetchDatas.bind(this);
     }
 
@@ -47,11 +41,8 @@ class MoveList extends Component {
         fetch(REQUEST_URL)
             .then(request => request.json())
             .then(json=> {
-                //console.log(json);
-                this.setState({
-                    dataSource: this.state.dataSource.cloneWithRows(json.movies),
-                    loaded: true
-                });
+                console.log(json);
+                this.setState({movie: json.movies});
             });
     }
 
@@ -63,18 +54,14 @@ class MoveList extends Component {
 
     render() {
         console.log("render");
-        if (!this.state.loaded) {
+        if (!this.state.movie) {
+            console.log()
             return this.renderLoadingView();
         }
         console.log("render2");
 
-        return (
-            <ListView
-                dataSource={this.state.dataSource}
-                renderRow={this.renderMovie}
-                style={styles.listView}
-            />
-        );
+        var movie = this.state.movie[0];
+        return this.renderMovie(movie);
 
     }
 
@@ -109,7 +96,6 @@ class MoveList extends Component {
 
 var styles = StyleSheet.create({
     container: {
-        paddingTop:30,
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
@@ -132,10 +118,6 @@ var styles = StyleSheet.create({
         textAlign: 'center',
         marginBottom: 30,
 
-    },
-    listView: {
-        paddingTop: 20,
-        backgroundColor: '#f5fcff'
     }
 
 });
