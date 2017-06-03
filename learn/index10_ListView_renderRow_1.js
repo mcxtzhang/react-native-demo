@@ -34,7 +34,7 @@ class ListViewDemo extends Component {
                         return (
                             <View style={{height: 200, flexDirection: 'row'}}>
                                 <Text style={{padding: 10, color: 'blue'}}>{itemData}</Text>
-                                <Image source={require('./zly.jpg')}/>
+                                <Image source={require('./../zly.jpg')}/>
                             </View>
 
                         );

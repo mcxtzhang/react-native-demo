@@ -17,35 +17,35 @@ class ScrollViewTest extends Component {
                 <Image
                     style={{width:50,height:50}}
                     source={{uri: 'https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png'}}/>
-                <Image source={require('./zly.jpg')}/>
+                <Image source={require('./../zly.jpg')}/>
                 <Image
                     source={{uri: 'https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png'}}/>
-                <Image source={require('./zly.jpg')}/>
+                <Image source={require('./../zly.jpg')}/>
                 <Image
                     source={{uri: 'https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png'}}/>
-                <Image source={require('./zly.jpg')}/>
+                <Image source={require('./../zly.jpg')}/>
                 <Image
                     source={{uri: 'https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png'}}/>
-                <Image source={require('./zly.jpg')}/>
+                <Image source={require('./../zly.jpg')}/>
                 <Image
                     source={{uri: 'https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png'}}/>
-                <Image source={require('./zly.jpg')}/>
+                <Image source={require('./../zly.jpg')}/>
                 <Text> 第二页</Text>
                 <Image
                     source={{uri: 'https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png'}}/>
-                <Image source={require('./zly.jpg')}/>
+                <Image source={require('./../zly.jpg')}/>
                 <Image
                     source={{uri: 'https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png'}}/>
-                <Image source={require('./zly.jpg')}/>
+                <Image source={require('./../zly.jpg')}/>
                 <Image
                     source={{uri: 'https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png'}}/>
-                <Image source={require('./zly.jpg')}/>
+                <Image source={require('./../zly.jpg')}/>
                 <Image
                     source={{uri: 'https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png'}}/>
-                <Image source={require('./zly.jpg')}/>
+                <Image source={require('./../zly.jpg')}/>
                 <Image
                     source={{uri: 'https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png'}}/>
-                <Image source={require('./zly.jpg')}/>
+                <Image source={require('./../zly.jpg')}/>
 
 
             </ScrollView>

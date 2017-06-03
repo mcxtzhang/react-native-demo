@@ -8,22 +8,40 @@
 import React, {Component} from 'react'
 import {AppRegistry, Text, View, StyleSheet, TextInput, ScrollView, Image, ListView} from 'react-native'
 
+//step 1 定义rowHasChanged 规则
+const dataRules = new ListView.DataSource({rowHasChanged: (r1, r2)=> r1 != r2});
+const DATAS = [
+    {"title": "1Star Wars", "releaseYear": "1977"},
+    {"title": "2Back to the Future", "releaseYear": "1985"},
+];
+
 class ListViewDemo extends Component {
     constructor(props) {
         super(props);
-        //step 1 定义rowHasChanged 规则
-        const dataRules = new ListView.DataSource({rowHasChanged: (r1, r2)=> r1 != r2});
         //stpe 2 定义数据源
         this.state = {
-            datas: dataRules.cloneWithRows(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']),
+            datas: dataRules.cloneWithRows(DATAS),
         };
+    }
+
+    componentDidMount() {
+        let tempDatas = fetch('https://facebook.github.io/react-native/movies.json')
+            .then(response=>response.json())
+            .then(data=>data.movies)
+            .catch(err=>console.error(err));
+
+
+        tempDatas.then(result=> this.setState({
+            datas: dataRules.cloneWithRows(result)
+        }))
+
     }
 
     renderPerRow(data) {
         return (
             <View style={{height: 200, flexDirection: 'row'}}>
-                <Text style={{padding: 10, color: 'red'}}>{data}</Text>
-                <Image source={require('./zly.jpg')}/>
+                <Text style={{padding: 10, color: 'red'}}>{data.title}</Text>
+                <Image source={require('./../zly.jpg')}/>
             </View>
 
         );
