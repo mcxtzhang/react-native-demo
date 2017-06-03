@@ -13,14 +13,18 @@ import {
 
 import MoveList from './learn/index_demo_movelist';
 import HelloText from './learn/index14_create_component';
+import LifecycleComponent from './learn/index15_lifecycle'
+import LifeCycleWrapper from './learn/index15_lifecycle2'
 
 export default class CommonSetup extends Component {
     render() {
         return (
             <View style={styles.container}
             >
-                <HelloText
-                    name="mcxtzhang"/>
+                {/*<HelloText
+                 name="mcxtzhang"/>*/}
+                <LifeCycleWrapper />
+
             </View>
         );
     }
