@@ -4,27 +4,23 @@
  * @flow
  */
 
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {
     StyleSheet,
     Text,
     View
 } from 'react-native';
 
+import MoveList from './learn/index_demo_movelist';
+import HelloText from './learn/index14_create_component';
+
 export default class CommonSetup extends Component {
     render() {
         return (
-            <View style={styles.container}>
-                <Text style={styles.welcome}>
-                    Welcome to React Native!
-                </Text>
-                <Text style={styles.instructions}>
-                    To get started, edit index.ios.js
-                </Text>
-                <Text style={styles.instructions}>
-                    Press Cmd+R to reload,{'\n'}
-                    Cmd+D or shake for dev menu
-                </Text>
+            <View style={styles.container}
+            >
+                <HelloText
+                    name="mcxtzhang"/>
             </View>
         );
     }
@@ -33,8 +29,6 @@ export default class CommonSetup extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
         backgroundColor: '#F5FCFF',
     },
     welcome: {

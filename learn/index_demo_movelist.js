@@ -30,7 +30,7 @@ var MOCKED_MOVIES_DATA = [
 var REQUEST_URL = 'https://raw.githubusercontent.com/facebook/react-native/master/docs/MoviesExample.json';
 
 
-class MoveList extends Component {
+export default class MoveList extends Component {
 
     constructor(props) {
         super(props)
@@ -47,7 +47,7 @@ class MoveList extends Component {
         fetch(REQUEST_URL)
             .then(request => request.json())
             .then(json=> {
-                //console.log(json);
+                console.log(json);
                 this.setState({
                     dataSource: this.state.dataSource.cloneWithRows(json.movies),
                     loaded: true
@@ -140,5 +140,3 @@ var styles = StyleSheet.create({
 
 });
 
-
-AppRegistry.registerComponent("AwesomeProject", ()=> MoveList);
