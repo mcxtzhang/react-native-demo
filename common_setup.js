@@ -15,6 +15,7 @@ import MoveList from './learn/index_demo_movelist';
 import HelloText from './learn/index14_create_component';
 import LifecycleComponent from './learn/index15_lifecycle'
 import LifeCycleWrapper from './learn/index15_lifecycle2'
+import NetTest from './learn/index16_net'
 
 export default class CommonSetup extends Component {
     render() {
@@ -23,8 +24,7 @@ export default class CommonSetup extends Component {
             >
                 {/*<HelloText
                  name="mcxtzhang"/>*/}
-                <LifeCycleWrapper />
-
+                <NetTest />
             </View>
         );
     }
