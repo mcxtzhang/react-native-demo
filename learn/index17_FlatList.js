@@ -37,7 +37,9 @@ export default class FlatTest extends Component {
                 {name: "David7",},
                 {name: "David8",},
                 {name: "David9",},
-            ]
+
+            ],
+            count: 0
         });
     }
 
@@ -48,14 +50,25 @@ export default class FlatTest extends Component {
                 <FlatList
                     data={this.state.datas}
                     renderItem={({item}) => <Text style={styles.item}>{item.name}</Text>}
-
-
+                    onEndReached={this.reachEnd.bind(this)}
+                    onRefresh={this.refresh.bind(this)}
+                    refreshing={true}
+                    ListFooterComponent={()=><Text>I am footer</Text>}
                 />
 
 
             </View>
 
         );
+    }
+
+    reachEnd() {
+        console.log('on end....:' + this.state.count);
+        this.setState({count: this.state.count});
+    }
+
+    refresh() {
+        console.log('on refresh....:');
     }
 
 }
