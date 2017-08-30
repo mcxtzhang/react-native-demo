@@ -16,6 +16,7 @@ import HelloText from './learn/index14_create_component';
 import LifecycleComponent from './learn/index15_lifecycle'
 import LifeCycleWrapper from './learn/index15_lifecycle2'
 import NetTest from './learn/index16_net'
+import FlatTest from './learn/index17_FlatList'
 
 export default class CommonSetup extends Component {
     render() {
@@ -24,7 +25,8 @@ export default class CommonSetup extends Component {
             >
                 {/*<HelloText
                  name="mcxtzhang"/>*/}
-                <NetTest />
+                {/* <NetTest />*/}
+                <FlatTest/>
             </View>
         );
     }
