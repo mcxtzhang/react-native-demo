@@ -20,6 +20,7 @@ import FlatTest from './learn/index17_FlatList'
 import {SimpleApp} from './learn/index18_ReactNavigation'
 import {TabTest} from './learn/index19_NestingNavigators'
 import {MyApp} from './learn/index20_TabRouter'
+import { addNavigationHelpers } from 'react-navigation';
 
 export default class CommonSetup extends Component {
     render() {
@@ -32,7 +33,9 @@ export default class CommonSetup extends Component {
                 {/*                <FlatTest/>*/}
                 {/*         <SimpleApp/>*/}
                 <Text>我就在你上面咋的低了</Text>
-                <SimpleApp abc={{"bean": '1'}}/>
+                <SimpleApp   navigation={addNavigationHelpers({
+                    state: {canshu:1},
+                })} />
             </View>
         );
     }

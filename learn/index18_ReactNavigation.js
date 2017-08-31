@@ -25,7 +25,8 @@ const main = class HomeScreen extends Component {
         const {state} = this.props.navigation;
         return (
             <View>
-                <Text>Hello,Navigation!:{state.params.canshu}</Text>
+                <Text>Hello,Navigation!:{state.params}</Text>
+                <Text>Hello!:{this.props.navigation.state.params.canshu}</Text>
 
                 <Button
                     onPress={() => navigate('Chat', {user: "Zhangxutong"})}
@@ -63,7 +64,7 @@ export const SimpleApp = StackNavigator({
     Chat: {screen: ChatScreen},
 }, {
     initialRouteName: 'Home',
-    initialRouteParams: {canshu: '初始页面参数'},
+    initialRouteParams: {...this.props},
     navigationOptions: {
         title: '标题',
         headerTitleStyle: {fontSize: 18, color: '#666666'},

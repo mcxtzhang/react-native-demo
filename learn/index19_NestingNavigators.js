@@ -21,14 +21,14 @@ import {TabNavigator} from "react-navigation";
 const FirstTab = class RecentChatsScreen extends React.Component {
     render() {
         let {state} = this.props.navigation;
-        return <Text>List of recent chats:{state.params}</Text>
+        return <Text>List of recent chats:{this.props.navigation.state.params.canshu}</Text>
     }
 }
 
 class AllContactsScreen extends React.Component {
     render() {
         return <View>
-            <Text>List of all contacts</Text>
+            <Text>List of all contacts+{this.props.navigation.state.params}</Text>
             <Button
                 onPress={() => this.props.navigation.navigate('Chat', {user: 'Lucy'})}
                 title="Chat with Lucy"
@@ -42,16 +42,27 @@ class AllContactsScreen extends React.Component {
 export const TabTest = TabNavigator({
     Recent: {
         screen: FirstTab,
-        params: {hello: 'world'}
     },
     All: {screen: AllContactsScreen},
-}, {
+}, /*{
     initialRouteName: 'Recent',
     initialRouteParams: {canshu: '初始页面参数'},
     tabBarOptions: {
         activeTintColor: '#123456',
         inactiveTintColor: '#987654'
     }
+}*/{
+    initialRouteName: 'All',
+    initialRouteParams: {canshu: '初始页面参数'},
+    navigationOptions: {
+        title: '标题',
+        headerTitleStyle: {fontSize: 18, color: '#666666'},
+        headerStyle: {height: 48, backgroundColor: '#fff'},
+    },
+    paths: 'page/main',
+    mode: 'card',
+    headerMode: 'screen',
+    cardStyle: {backgroundColor: "#ffffff"},
 });
 
 TabTest.navigationOptions = {
