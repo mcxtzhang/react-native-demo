@@ -80,7 +80,7 @@ export default class LoadingFooter extends Component {
     constructor(props) {
         super(props);
         this.state = ({
-            status: STATUS_NORMAL,
+            status: this.props.status ? this.props.status : STATUS_NORMAL,
         });
     }
 

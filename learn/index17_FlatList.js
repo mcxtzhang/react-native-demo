@@ -21,8 +21,9 @@ import {
     TouchableOpacity
 } from 'react-native'
 import NetUtils from './../common/NetUtils'
-import {STATUS_LOADING, STATUS_NORMAL} from "./baselist/LoadingFooter";
+import LoadingFooter, {STATUS_ERROR, STATUS_LOADING, STATUS_NORMAL} from "./baselist/LoadingFooter";
 
+//可替换的 ItemView
 class ListItem extends Component {
     onPress = () => {
         //点击事件通过props设置，同时回调props.id回去
@@ -58,7 +59,9 @@ export default class FlatTest extends Component {
 
             ],
             count: 0,
+            //状态：
             status: STATUS_NORMAL,
+            footerStatus: STATUS_NORMAL,
         });
     }
 
@@ -71,13 +74,13 @@ export default class FlatTest extends Component {
                     data={this.state.datas}
                     renderItem={this.renderItem}
 
-                    onEndReached={this.reachEnd.bind(this)}
+                    onEndReached={this.reachEnd}
                     onEndReachedThreshold="0.1"
 
                     onRefresh={this.refresh.bind(this)}
                     refreshing={this.state.status == STATUS_LOADING}
 
-                    ListFooterComponent={() => <Text>I am footer</Text>}
+                    ListFooterComponent={this.renderFooter.bind(this)}
 
                     ItemSeparatorComponent={() => <Text>I am divide</Text>}
 
@@ -90,17 +93,35 @@ export default class FlatTest extends Component {
         );
     }
 
-    reachEnd() {
-        console.log('on end....:' + this.state.count);
-        this.setState({count: this.state.count});
+
+    renderFooter() {
+        return <LoadingFooter
+            status={this.state.footerStatus}
+            onRetryPressed={() => {
+                //重试加载更多
+            }}/>
+    };
+
+    reachEnd = () => {
+        if (this.state.footerStatus == STATUS_NORMAL) {
+            //触发刷新 需要回调 同时进入loading状态
+            this.setState({footerStatus: STATUS_LOADING});
+            console.log('on end....:' + this.state.footerStatus);
+        } else {
+            //其他状态都不管
+            console.log('on end....:' + this.state.footerStatus);
+        }
+        console.log('on end....:');
     }
 
+    //刷新回调
     refresh() {
         console.log('on refresh....:');
         this.setState({status: STATUS_LOADING});
         //this.refs.listView.se(true);
     }
 
+    //渲染逻辑
     renderItem = ({item}) => (
         <ListItem
             itemData={item}
@@ -108,11 +129,25 @@ export default class FlatTest extends Component {
             id={item.name}
         />)
 
-
+    //点击回调
     onPressItem = (id) => {
         console.log("press Item:" + id);
         //另外让列表停止刷新
         this.setState({status: STATUS_NORMAL});
+        this.setState({footerStatus: STATUS_NORMAL});
+        const newDatas= [
+            {name: "David11",},
+            {name: "David12",},
+            {name: "David13",},
+            {name: "David14",},
+            {name: "David15",},
+            {name: "David16",},
+            {name: "David17",},
+            {name: "David18",},
+            {name: "David19",},
+
+        ];
+        this.setState({datas:this.state.datas.concat(newDatas)});
     }
 
 }
