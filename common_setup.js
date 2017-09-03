@@ -27,6 +27,8 @@ import {addNavigationHelpers} from 'react-navigation';
 import SimpleStack from './learn/index21_StackNavigator_21'
 import ModalStack from "./learn/index21_StackNavigator_22"
 
+import TabNaviTest1 from './learn/index22_TabNavigator'
+
 
 export default class CommonSetup extends Component {
     render() {
@@ -39,14 +41,21 @@ export default class CommonSetup extends Component {
                 {/*                <FlatTest/>*/}
                 {/*         <SimpleApp/>*/}
                 <Text>我就在你上面咋的低了</Text>
-{/*                <ModalStack screenProps={{
+                {/*                <ModalStack screenProps={{
                     //重要 ，传递参数给每个Screen
                     // this prop will get passed to the screen components as this.props.screenProps
                     params1: '参数1',
                     params2: "参数2",
                     ...this.props
                 }}/>*/}
-                <ModalStack/>
+                <TabNaviTest1 screenProps={{
+                    //重要 ，传递参数给每个Screen
+                    // this prop will get passed to the screen components as this.props.screenProps
+                    params1: '参数1',
+                    params2: "参数2",
+                    ...this.props
+                }}
+                />
             </View>
         );
     }
