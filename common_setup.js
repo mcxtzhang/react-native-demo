@@ -28,7 +28,7 @@ import SimpleStack from './learn/index21_StackNavigator_21'
 import ModalStack from "./learn/index21_StackNavigator_22"
 
 import TabNaviTest1 from './learn/index22_TabNavigator'
-
+import TabMyBills from './learn/my_bills_list'
 
 export default class CommonSetup extends Component {
     render() {
@@ -56,7 +56,7 @@ export default class CommonSetup extends Component {
                     ...this.props
                 }}
                 />*/}
-                <SimpleStack/>
+                <TabMyBills />
             </View>
         );
     }
