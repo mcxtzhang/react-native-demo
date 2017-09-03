@@ -82,6 +82,10 @@ export default class CommonSetup extends Component {
                 }}>
                     <Text>点我Error</Text>
                 </TouchableHighlight>
+
+
+
+                <FlatTest/>
             </View>
         );
     }

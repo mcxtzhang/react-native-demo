@@ -17,9 +17,27 @@ import {
     ViewPagerAndroid,
     Animated,
     ListView,
-    FlatList
+    FlatList,
+    TouchableOpacity
 } from 'react-native'
 import NetUtils from './../common/NetUtils'
+import {STATUS_LOADING, STATUS_NORMAL} from "./baselist/LoadingFooter";
+
+class ListItem extends Component {
+    onPress = () => {
+        //点击事件通过props设置，同时回调props.id回去
+        this.props.onPressItem(this.props.id);
+    }
+
+    render() {
+        return (<TouchableOpacity {...this.props}
+                                  onPress={this.onPress}>
+            <Text>fajlskfjaslfj;asdl</Text>
+            <Text style={styles.item}>{this.props.itemData.name}</Text>
+
+        </TouchableOpacity>);
+    }
+}
 
 
 export default class FlatTest extends Component {
@@ -39,21 +57,31 @@ export default class FlatTest extends Component {
                 {name: "David9",},
 
             ],
-            count: 0
+            count: 0,
+            status: STATUS_NORMAL,
         });
     }
-
 
     render() {
         return (
             <View style={styles.container}>
                 <FlatList
+                    ref="listView"
+
                     data={this.state.datas}
-                    renderItem={({item}) => <Text style={styles.item}>{item.name}</Text>}
+                    renderItem={this.renderItem}
+
                     onEndReached={this.reachEnd.bind(this)}
+                    onEndReachedThreshold="0.1"
+
                     onRefresh={this.refresh.bind(this)}
-                    refreshing={true}
-                    ListFooterComponent={()=><Text>I am footer</Text>}
+                    refreshing={this.state.status == STATUS_LOADING}
+
+                    ListFooterComponent={() => <Text>I am footer</Text>}
+
+                    ItemSeparatorComponent={() => <Text>I am divide</Text>}
+
+                    ListEmptyComponent={() => <Text>我曹！服务器什么数据都没给</Text>}
                 />
 
 
@@ -69,6 +97,22 @@ export default class FlatTest extends Component {
 
     refresh() {
         console.log('on refresh....:');
+        this.setState({status: STATUS_LOADING});
+        //this.refs.listView.se(true);
+    }
+
+    renderItem = ({item}) => (
+        <ListItem
+            itemData={item}
+            onPressItem={this.onPressItem}
+            id={item.name}
+        />)
+
+
+    onPressItem = (id) => {
+        console.log("press Item:" + id);
+        //另外让列表停止刷新
+        this.setState({status: STATUS_NORMAL});
     }
 
 }
