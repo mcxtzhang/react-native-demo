@@ -20,7 +20,9 @@ import FlatTest from './learn/index17_FlatList'
 import {SimpleApp} from './learn/index18_ReactNavigation'
 import {TabTest} from './learn/index19_NestingNavigators'
 import {MyApp} from './learn/index20_TabRouter'
-import { addNavigationHelpers } from 'react-navigation';
+import {addNavigationHelpers} from 'react-navigation';
+
+import {ModalStack} from './learn/index21_StackNavigator'
 
 export default class CommonSetup extends Component {
     render() {
@@ -33,9 +35,13 @@ export default class CommonSetup extends Component {
                 {/*                <FlatTest/>*/}
                 {/*         <SimpleApp/>*/}
                 <Text>我就在你上面咋的低了</Text>
-                <SimpleApp   navigation={addNavigationHelpers({
-                    state: {canshu:1},
-                })} />
+                <ModalStack screenProps={{
+                    //重要 ，传递参数给每个Screen
+                    /* this prop will get passed to the screen components as this.props.screenProps */
+/*                    params1: '参数1',
+                    params2: "参数2"*/
+                    ...this.props
+                }}/>
             </View>
         );
     }

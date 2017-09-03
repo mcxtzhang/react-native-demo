@@ -64,7 +64,7 @@ export const SimpleApp = StackNavigator({
     Chat: {screen: ChatScreen},
 }, {
     initialRouteName: 'Home',
-    initialRouteParams: {...this.props},
+
     navigationOptions: {
         title: '标题',
         headerTitleStyle: {fontSize: 18, color: '#666666'},
