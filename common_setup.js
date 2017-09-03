@@ -8,7 +8,8 @@ import React, {Component} from 'react';
 import {
     StyleSheet,
     Text,
-    View
+    View,
+    TouchableHighlight
 } from 'react-native';
 
 import MoveList from './learn/index_demo_movelist';
@@ -29,6 +30,8 @@ import ModalStack from "./learn/index21_StackNavigator_22"
 
 import TabNaviTest1 from './learn/index22_TabNavigator'
 import TabMyBills from './learn/my_bills_list'
+import LoadingFooter, {STATUS_EMPTY, STATUS_ERROR, STATUS_LOADING, STATUS_NORMAL} from "./learn/baselist/LoadingFooter";
+
 
 export default class CommonSetup extends Component {
     render() {
@@ -56,10 +59,36 @@ export default class CommonSetup extends Component {
                     ...this.props
                 }}
                 />*/}
-                <TabMyBills />
+                <LoadingFooter ref="loadingFooter" onRetryPressed={() => {
+                    this.refs.loadingFooter.changeStatus(STATUS_LOADING)
+                }}/>
+                <TouchableHighlight onPress={() => {
+                    this.refs.loadingFooter.changeStatus(STATUS_NORMAL)
+                }}>
+                    <Text>点我Normal</Text>
+                </TouchableHighlight>
+                <TouchableHighlight onPress={() => {
+                    this.refs.loadingFooter.changeStatus(STATUS_LOADING)
+                }}>
+                    <Text>点我Loading</Text>
+                </TouchableHighlight>
+                <TouchableHighlight onPress={() => {
+                    this.refs.loadingFooter.changeStatus(STATUS_EMPTY)
+                }}>
+                    <Text>点我Empty</Text>
+                </TouchableHighlight>
+                <TouchableHighlight onPress={() => {
+                    this.refs.loadingFooter.changeStatus(STATUS_ERROR)
+                }}>
+                    <Text>点我Error</Text>
+                </TouchableHighlight>
             </View>
         );
     }
+
+
+
+
 }
 
 const styles = StyleSheet.create({
