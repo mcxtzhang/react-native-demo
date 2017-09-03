@@ -22,7 +22,7 @@ import {TabTest} from './learn/index19_NestingNavigators'
 import {MyApp} from './learn/index20_TabRouter'
 import {addNavigationHelpers} from 'react-navigation';
 
-//import {ModalStack} from './learn/index21_StackNavigator'
+import {StackTest1} from './learn/index21_StackNavigator'
 
 import SimpleStack from './learn/index21_StackNavigator_21'
 import ModalStack from "./learn/index21_StackNavigator_22"
@@ -40,22 +40,23 @@ export default class CommonSetup extends Component {
                 {/* <NetTest />*/}
                 {/*                <FlatTest/>*/}
                 {/*         <SimpleApp/>*/}
-                <Text>我就在你上面咋的低了</Text>
-                {/*                <ModalStack screenProps={{
+                {/*                <Text>我就在你上面咋的低了</Text>
+                                <StackTest1 screenProps={{
                     //重要 ，传递参数给每个Screen
                     // this prop will get passed to the screen components as this.props.screenProps
                     params1: '参数1',
                     params2: "参数2",
                     ...this.props
                 }}/>*/}
-                <TabNaviTest1 screenProps={{
+                {/*                <TabNaviTest1 screenProps={{
                     //重要 ，传递参数给每个Screen
                     // this prop will get passed to the screen components as this.props.screenProps
                     params1: '参数1',
                     params2: "参数2",
                     ...this.props
                 }}
-                />
+                />*/}
+                <SimpleStack/>
             </View>
         );
     }

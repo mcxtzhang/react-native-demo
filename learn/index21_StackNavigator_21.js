@@ -27,6 +27,8 @@ const MyNavScreen = ({navigation, banner}) => (
             title="Go to a photos screen"
         />
         <Button onPress={() => navigation.goBack(null)} title="Go back"/>
+
+        <Button  title="Back to Home" onPress={   ()=> navigation.goBack('Home')} />
     </ScrollView>
 );
 

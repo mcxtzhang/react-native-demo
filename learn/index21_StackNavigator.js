@@ -32,13 +32,29 @@ class MyHomeScreen extends React.Component {
 }
 
 class MyProfileScreen extends React.Component {
+
     render() {
+        //setParams:
+        this.props.navigation.setParams({name: "zhangxutong"});
+
         return (
             <Text>
                 {this.props.navigation.state.params.name}+"和顶层的参数："+{this.props.screenProps.params2}
             </Text>
 
         );
+    }
+}
+
+class TestSetParamsScreen extends Component {
+    render() {
+        const {setParams} = this.props.navigation;
+        return (
+            <Button
+                onPress={() => setParams({name: 'Lucy'})}
+                title="Set title name to 'Lucy'"
+            />
+        )
     }
 }
 
@@ -57,6 +73,10 @@ const RouteConfigs = {
             title: `${navigation.state.params.name}'s Profile`,
         }),
     },
+    TestSetParams: {
+        screen: TestSetParamsScreen,
+
+    }
 };
 
 const StackNavigatorConfig = {
@@ -69,4 +89,4 @@ const StackNavigatorConfig = {
 }
 
 
-export const ModalStack = StackNavigator(RouteConfigs, StackNavigatorConfig);
+export const StackTest1 = StackNavigator(RouteConfigs, StackNavigatorConfig);
