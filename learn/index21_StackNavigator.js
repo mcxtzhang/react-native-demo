@@ -24,6 +24,7 @@ class MyHomeScreen extends React.Component {
         return (
             <Button
                 onPress={() => this.props.navigation.navigate('Profile', {name: 'Lucy'})}
+                //接收来自顶层传过来的参数
                 title={this.props.screenProps.params1}
             />
         );
@@ -34,7 +35,7 @@ class MyProfileScreen extends React.Component {
     render() {
         return (
             <Text>
-                {this.props.navigation.state.params.name}
+                {this.props.navigation.state.params.name}+"和顶层的参数："+{this.props.screenProps.params2}
             </Text>
 
         );
@@ -44,9 +45,9 @@ class MyProfileScreen extends React.Component {
 const RouteConfigs = {
     Home: {
         screen: MyHomeScreen,
-/*        navigationOptions: ({navigation}) => ({
-            header: <Text>自定义头部</Text>,
-        }),*/
+        /*        navigationOptions: ({navigation}) => ({
+                    header: <Text>自定义头部</Text>,
+                }),*/
     },
     Profile: {
         path: 'people/:name',
@@ -63,7 +64,7 @@ const StackNavigatorConfig = {
         title: '不知道谁会覆盖谁',
     }),
     //重要 隐藏标题栏
-    headerMode:'none',
+    headerMode: 'none',
 
 }
 

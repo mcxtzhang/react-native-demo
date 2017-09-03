@@ -38,8 +38,8 @@ export default class CommonSetup extends Component {
                 <ModalStack screenProps={{
                     //重要 ，传递参数给每个Screen
                     /* this prop will get passed to the screen components as this.props.screenProps */
-/*                    params1: '参数1',
-                    params2: "参数2"*/
+                    params1: '参数1',
+                    params2: "参数2",
                     ...this.props
                 }}/>
             </View>
