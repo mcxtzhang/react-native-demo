@@ -22,8 +22,11 @@ import {TabTest} from './learn/index19_NestingNavigators'
 import {MyApp} from './learn/index20_TabRouter'
 import {addNavigationHelpers} from 'react-navigation';
 
-import {ModalStack} from './learn/index21_StackNavigator'
+//import {ModalStack} from './learn/index21_StackNavigator'
+
 import SimpleStack from './learn/index21_StackNavigator_21'
+import ModalStack from "./learn/index21_StackNavigator_22"
+
 
 export default class CommonSetup extends Component {
     render() {
@@ -43,7 +46,7 @@ export default class CommonSetup extends Component {
                     params2: "参数2",
                     ...this.props
                 }}/>*/}
-                <SimpleStack />
+                <ModalStack/>
             </View>
         );
     }
