@@ -22,6 +22,7 @@ import {
 } from 'react-native'
 import NetUtils from './../common/NetUtils'
 import LoadingFooter, {STATUS_ERROR, STATUS_LOADING, STATUS_NORMAL} from "./baselist/LoadingFooter";
+import BillsListItem from './my_bills_list_item'
 
 //可替换的 ItemView
 class ListItem extends Component {
@@ -123,7 +124,7 @@ export default class FlatTest extends Component {
 
     //渲染逻辑
     renderItem = ({item}) => (
-        <ListItem
+        <BillsListItem
             itemData={item}
             onPressItem={this.onPressItem}
             id={item.name}
